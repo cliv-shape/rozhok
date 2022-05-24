@@ -52,7 +52,7 @@ client.on('messageCreate', async (m) => {
             zap(m.content + m.attachments[0].url)
             }
             if(imgSaveAndUse === true && m.attachments[0].filename.endsWith('.jpg') || m.attachments[0].filename.endsWith('.png') || m.attachments[0].filename.endsWith('.jpeg')) {
-            downloadFile(`${m.attachments[0].url}`, `./img/${m.id}_${m.attachments[0].filename}`)
+            await downloadFile(`${m.attachments[0].url}`, `./img/${m.id}_${m.attachments[0].filename}`)
             }
         }
         if(!m.attachments[0] && txtSave === true) {
