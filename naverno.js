@@ -67,12 +67,15 @@ client.on('messageCreate', async (m) => {
     if(imgSaveAndUse === true) {
     let files = fs.readdirSync('./img')
     let imagehas = random(1, 10)
+    if(files.length < limitimg) {
     if(imagehas < 2) {
         let randomfile = random(0, files.length)
         let randomline = random(0, lines.length)
-        let img = fs.readFileSync(`./img/${files[randomfile]}`) 
+        let img = fs.readFileSync(`./img/${files[randomfile]}`)
+        
         return client.createMessage(m.channel.id, lines[randomline], [{ file: img, name: `${files[randomfile]}`}])
     }
+}
 }
     if(e1 > 5) {
     let randomline = random(0, lines.length)

@@ -6,5 +6,6 @@
     "bottextStatus": "чатик..",
     "botonlineStatus": "idle",
     "typeofStatus": 3,
-    "idChanneltoSaveAndWrite": "idChannel"
+    "idChanneltoSaveAndWrite": "idChannel",
+    "limitimg": 100
 }
