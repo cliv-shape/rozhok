@@ -66,8 +66,8 @@ client.on('messageCreate', async (m) => {
     let e1 = random(1, 10)
     if(imgSaveAndUse === true) {
     let files = fs.readdirSync('./img')
-    let imagehas = random(1, 10)
     if(files.length < limitimg) {
+    let imagehas = random(1, 10)
     if(imagehas < 2) {
         let randomfile = random(0, files.length)
         let randomline = random(0, lines.length)
