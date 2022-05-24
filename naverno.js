@@ -49,11 +49,11 @@ client.on('messageCreate', async (m) => {
     let e = random(0, 10)
     if(m.content.length < 60 && save === true) {
         if(m.attachments[0]) {
-            if(txtSave === true) {
-            await zap(m.content + m.attachments[0].url)
-            }
             if(files.length < limitimg && imgSaveAndUse === true && m.attachments[0].filename.endsWith('.jpg') || m.attachments[0].filename.endsWith('.png') || m.attachments[0].filename.endsWith('.jpeg') || m.attachments[0].filename.endsWith('.gif')) {
             await downloadFile(`${m.attachments[0].url}`, `./img/${m.id}_${m.attachments[0].filename}`)
+            }
+            if(txtSave === true) {
+                await zap(`${m.content} ${m.attachments[0].url}`)
             }
         }
         if(!m.attachments[0] && txtSave === true) {
