@@ -4,6 +4,10 @@
 ```
 git clone https://github.com/cliv-shape/rozhok
 ``` 
+# Обновление: 
+```
+git pull
+```
 # Запуск:
 ```
 node .
