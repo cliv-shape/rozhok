@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "eris": "^0.16.1",
+    "node-fetch": "2.0.0"
+  },
+  "name": "rozhok",
+  "version": "1.0.0",
+  "description": "Что такое описание? Таких не знаю..",
+  "main": "naverno.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cliv-shape/rozhok.git"
+  },
+  "author": "cliv-shape - swd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cliv-shape/rozhok/issues"
+  },
+  "homepage": "https://github.com/cliv-shape/rozhok#readme"
+}

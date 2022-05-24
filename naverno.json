@@ -1,0 +1,10 @@
+{
+    "token": "token",
+    "save": true,
+    "imgSaveAndUse": true,
+    "txtSave": true,
+    "bottextStatus": "чатик..",
+    "botonlineStatus": "idle",
+    "typeofStatus": 3,
+    "idChanneltoSaveAndWrite": "idChannel"
+}
