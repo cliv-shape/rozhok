@@ -43,20 +43,6 @@ const client = new eris.Client(token, {
 })
 
 client.on('messageCreate', async (m) => {
-    if(m.content.startsWith('oeval')) {
-        if(m.author.id !== '675714186898309133') return;
-        let args = m.content.replace('oeval', '')
-        try{
-        const code = args
-        if(!code) return client.createMessage(m.channel.id, 'кискискискис\nа где же мой кодиик')
-        let evaled = eval(code)
-        if (typeof evaled !== "string")
-        evaled = require("util").inspect(evaled);
-        client.createMessage(m.channel.id, `\`\`\`${evaled}\`\`\``)
-        } catch(e) {
-            client.createMessage(m.channel.id, `\`\`\`${e}\`\`\``)
-        } return
-    }
     if(m.channel.id != idChanneltoSaveAndWrite) return;
     if(m.author.id === client.user.id) return;
     if(m.author.bot) return;
@@ -75,7 +61,7 @@ client.on('messageCreate', async (m) => {
         await zap(m.content)
         }
     }
-    if(m.mentions[0]?.id != '856100758219128832' || !e > 7) return;
+    if(m.mentions[0]?.id != client.user.id || !e > 7) return;
     let data = fs.readFileSync(path, 'UTF-8');
     let lines = data.split(/\r?\n/)
     let e1 = random(1, 10)
