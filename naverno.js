@@ -43,9 +43,9 @@ const client = new eris.Client(token, {
 })
 
 client.on('messageCreate', async (m) => {
-    if(m.channel.id != idChanneltoSaveAndWrite) return;
-    if(m.author.id === client.user.id) return;
     if(m.author.bot) return;
+    if(m.author.id === client.user.id) return;
+    if(m.channel.id != idChanneltoSaveAndWrite) return;
     if(!m.content) return;
     let e = random(0, 10)
     if(m.content.length < 60 && save === true) {
