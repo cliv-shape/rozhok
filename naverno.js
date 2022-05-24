@@ -51,7 +51,7 @@ client.on('messageCreate', async (m) => {
             if(txtSave === true) {
             zap(m.content + m.attachments[0].url)
             }
-            if(imgSaveAndUse === true && m.attachments[0].filename.includes(['.jpg', '.png', '.gif'])) {
+            if(imgSaveAndUse === true && m.attachments[0].filename.endsWith('.jpg') || m.attachments[0].filename.endsWith('.png') || m.attachments[0].filename.endsWith('.jpeg')) {
             downloadFile(`${m.attachments[0].url}`, `./img/${m.id}_${m.attachments[0].filename}`)
             }
         }
