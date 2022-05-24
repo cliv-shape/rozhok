@@ -1,15 +1,14 @@
 {
   "dependencies": {
-    "eris": "^0.16.1",
-    "node-fetch": "2.0.0"
+    "axios": "^0.27.2",
+    "eris": "^0.16.1"
   },
   "name": "rozhok",
   "version": "1.0.0",
   "description": "Что такое описание? Таких не знаю..",
-  "main": "naverno.js",
-  "devDependencies": {},
+  "main": "./src/index.js",
   "scripts": {
-    "test": "node ."
+    "run": "node ."
   },
   "repository": {
     "type": "git",
