@@ -3,7 +3,7 @@ const fs = require('fs')
 const eris = require('eris')
 let path = 'naverno.txt';
 const fetch = require('node-fetch'); // npm i node-fetch@2.0.0
-
+let files = fs.readdirSync('./img')
 
 fs.existsSync(path) ? console.log('file exists..') : fs.writeFile(path, 'hi', () => { console.log('file don\'t exists, creating new..')})
 let { token, imgSaveAndUse, save, txtSave, bottextStatus, typeofStatus, botonlineStatus, idChanneltoSaveAndWrite, limitimg } = require('./naverno.json')
@@ -52,7 +52,7 @@ client.on('messageCreate', async (m) => {
             if(txtSave === true) {
             await zap(m.content + m.attachments[0].url)
             }
-            if(imgSaveAndUse === true && m.attachments[0].filename.endsWith('.jpg') || m.attachments[0].filename.endsWith('.png') || m.attachments[0].filename.endsWith('.jpeg') || m.attachments[0].filename.endsWith('.gif')) {
+            if(files.length < limitimg && imgSaveAndUse === true && m.attachments[0].filename.endsWith('.jpg') || m.attachments[0].filename.endsWith('.png') || m.attachments[0].filename.endsWith('.jpeg') || m.attachments[0].filename.endsWith('.gif')) {
             await downloadFile(`${m.attachments[0].url}`, `./img/${m.id}_${m.attachments[0].filename}`)
             }
         }
@@ -65,7 +65,6 @@ client.on('messageCreate', async (m) => {
     let lines = data.split(/\r?\n/)
     let e1 = random(1, 10)
     if(imgSaveAndUse === true) {
-    let files = fs.readdirSync('./img')
     if(files.length < limitimg) {
     let imagehas = random(1, 10)
     if(imagehas < 2) {
