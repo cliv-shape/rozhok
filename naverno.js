@@ -51,14 +51,14 @@ client.on('messageCreate', async (m) => {
     if(m.content.length < 60 && save === true) {
         if(m.attachments[0]) {
             if(txtSave === true) {
-            await zap(m.content + m.attachments[0].url)
+            zap(m.content + m.attachments[0].url)
             }
             if(imgSaveAndUse === true && m.attachments[0].filename.includes(['.jpg', '.png', '.gif'])) {
-            await downloadFile(`${m.attachments[0].url}`, `./img/${m.id}_${m.attachments[0].filename}`)
+            downloadFile(`${m.attachments[0].url}`, `./img/${m.id}_${m.attachments[0].filename}`)
             }
         }
         if(!m.attachments[0] && txtSave === true) {
-        await zap(m.content)
+        zap(m.content)
         }
     }
     if(m.mentions[0]?.id != client.user.id || !e > 7) return;
@@ -72,7 +72,6 @@ client.on('messageCreate', async (m) => {
         let randomfile = random(0, files.length)
         let randomline = random(0, lines.length)
         let img = fs.readFileSync(`./img/${files[randomfile]}`) 
-        console.log(files[randomfile])
         return client.createMessage(m.channel.id, lines[randomline], [{ file: img, name: `${files[randomfile]}`}])
     }
 }
