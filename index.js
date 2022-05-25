@@ -120,4 +120,5 @@ client.once('ready', () => {
     console.log(`logged,\nuser: ${client.user.username}\navatarURL: ${client.user.avatarURL}\nclient_id: ${client.user.id}\nguilds_count: ${client.guilds.size}`)
     client.editStatus(botonlineStatus, { name: bottextStatus, type: typeofStatus })
 })
+
 client.connect();
