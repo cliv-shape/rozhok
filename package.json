@@ -1,13 +1,12 @@
 {
   "dependencies": {
-    "eris": "^0.16.1",
-    "node-fetch": "2.0.0"
+    "axios": "^0.27.2",
+    "eris": "^0.16.1"
   },
   "name": "rozhok",
-  "version": "1.1.2",
-  "description": "Что такое описание? Таких не знаю..",
+  "version": "2.0.0",
+  "description": "bot save & use messages from you server btw this is fun",
   "main": "naverno.js",
-  "devDependencies": {},
   "scripts": {
     "test": "node ."
   },

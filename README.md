@@ -1,14 +1,16 @@
 # rozhok
-по сути.. пародия на популярного бота GenAi, с говнокодом :)
-# Установка:
+bot save & use messages from you server btw this is fun (GenAI bot parody)
+# install:
 ```
 git clone https://github.com/cliv-shape/rozhok
+npm i
 ``` 
-# Обновление: 
+# upgrade: 
 ```
 git pull
 ```
-# Запуск:
+# start:
 ```
 node .
+node index.js
 ```
