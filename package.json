@@ -2,7 +2,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "eris": "^0.16.1"
-  },
+},
   "name": "rozhok",
   "version": "2.0.0",
   "description": "bot save & use messages from you server btw this is fun",

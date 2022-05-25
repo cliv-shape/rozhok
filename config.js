@@ -1,5 +1,5 @@
 module.exports = {
-    token: "", // your bot's token
+    token: "", // your bot token
     saveAnyData: true, // if switch this to false imgSaveAndUse will be useless
     imgSaveAndUse: true, // save and use user's images of gifs in random bot`s answers
     txtSave: true, // save user's messages to path variable file

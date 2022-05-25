@@ -5,7 +5,7 @@ bot save & use messages from you server btw this is fun (GenAI bot parody)
 git clone https://github.com/cliv-shape/rozhok
 npm i
 ``` 
-# upgrade: 
+# upgrade:
 ```
 git pull
 ```
