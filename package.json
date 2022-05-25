@@ -6,7 +6,7 @@
   "name": "rozhok",
   "version": "2.0.0",
   "description": "bot save & use messages from you server btw this is fun",
-  "main": "naverno.js",
+  "main": "index.js",
   "scripts": {
     "test": "node ."
   },
