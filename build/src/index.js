@@ -58,10 +58,13 @@ client.on('messageCreate', async (message) => {
             }
         }
     }
-    if (random(0, 10) < 9 || message.mentions.includes(client.user))
-        return;
     if (config_1.default.txtSave) {
         await writeToFile(message.content);
+    }
+    if (!message.mentions.includes(client.user)) {
+        if (random(0, 10) < 9) {
+            return;
+        }
     }
     if (config_1.default.imgSaveAndUse) {
         if (random(1, 10) < 2) {

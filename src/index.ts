@@ -54,10 +54,15 @@ client.on('messageCreate', async (message) => {
         }
     }
 
-    if (random(0, 10) < 9 || message.mentions.includes(client.user as Eris.User)) return;
     if (config.txtSave) {
         await writeToFile(message.content)
     }
+    if(!message.mentions.includes(client.user as Eris.User)) {
+        if (random(0, 10) < 9) {
+            return;
+        }
+    }
+
     if (config.imgSaveAndUse) {
         if (random(1, 10) < 2) {
             const file:string = files[random(0, files.length)];
