@@ -1,13 +1,14 @@
-const fs = require('fs')
-const eris = require('eris');
-const axios = require('axios')
-const config = require('../config')
+import fs from "fs";
+// @ts-ignore
+import config from "../config";
+import axios from 'axios';
+import Eris from "eris";
 
 function random(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 async function writeToFile(args) {
-    let buffer = new Buffer.from(`\n${args}`);
+    let buffer = Buffer.from(`\n${args}`);
     fs.open(config.path, 'a', function (err, fd) {
         if (err) {
             console.error(err)
@@ -31,36 +32,41 @@ async function downloadFile(url, path) {
     })
     return res.data.pipe(fs.createWriteStream(path));
 }
-const client = new eris.Client(config.token, {
+const client = new Eris.Client(config.token, {
     allowedMentions: {
         everyone: false,
         roles: false,
-    },
-    prefix: 'o',
-    defaultHelpCommand: false
+    }, intents: ["guildMessages"]
 })
 
 client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
-    if (message.channel.id !== config.idChanneltoSaveAndWrite) return;
+    if (message.channel.id !== config.idChannelToSaveAndWrite) return;
     let files = fs.readdirSync('./img')
-    const lines = fs.readFileSync(config.path, "UTF-8").split(/\r?\n/)
+    const lines = fs.readFileSync(config.path, {encoding:"utf-8"}).split(/\r?\n/)
+
     if (config.imgSaveAndUse && files.length < config.limitimg) {
         for (const attachment of message.attachments) {
             if(attachment.filename.endsWith('.jpg') || attachment.filename.endsWith('.png') || attachment.filename.endsWith('.gif')){
-                await downloadFile(`${attachment.url}`, `./img/${message.id}_${attachment.filename}`);
+                await downloadFile(`${attachment.url}`, `./img/${attachment.filename}`);
                 console.log("Downloaded file "+attachment.filename)
             }
         }
     }
-    if (message.mentions[0]?.id !== client.user.id || !random(0, 10) > 7) return;
+
+    if (random(0, 10) < 9 || message.mentions.includes(client.user as Eris.User)) return;
     if (config.txtSave) {
         await writeToFile(message.content)
     }
     if (config.imgSaveAndUse) {
         if (random(1, 10) < 2) {
-            let img = fs.readFileSync(`./img/${files[random(0, files.length)]}`)
-            return client.createMessage(message.channel.id, lines[random(0, lines.length)], [{ file: img, name: `unknown.png` }])
+            const file:string = files[random(0, files.length)];
+            try{
+                let img:Buffer = fs.readFileSync(`./img/${file}`)
+                return client.createMessage(message.channel.id, lines[random(0, lines.length)], [{ file: img, name: file }])
+            }catch (e:Error | any){
+                console.error(e.message)
+            }
         }
     }
     let randomLine = random(0, lines.length)
