@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "axios": "^0.27.2",
+    "canvas": "^2.9.1",
+    "eris": "^0.16.1"
+  },
+  "name": "rozhok_v1",
+  "description": "Бот, который умеет воспроизводить ваш текст, все..",
+  "version": "1.3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cliv-shape/system.git"
+  },
+  "author": "cliv-shape | swd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cliv-shape/system/issues"
+  },
+  "homepage": "https://github.com/cliv-shape/system#readme"
+}
